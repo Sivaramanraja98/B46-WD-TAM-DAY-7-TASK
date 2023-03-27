@@ -4,12 +4,12 @@ xhr.responseType = 'json';
 xhr.send();
 xhr.onload = function () { 
   var responseObj = xhr.response;
-//console.log(responseObj)
+//   console.log(responseObj)
   var res = responseObj.filter(function(item){
-    return item.currencies =='USD';
+   return item.currencies && item.currencies.USD;
   });
 var usdcountries = res.map(function(item){
-    return item.name;
+    return item.name.common;
   });
 console.log(usdcountries);
-} ;
+} 
